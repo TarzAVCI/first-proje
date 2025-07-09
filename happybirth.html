@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Doğum Günün Kutlu Olsun Aşkım! 🎉</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background-size: 400% 400%;
+            animation: gradientShift 25s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Konfeti animasyonu */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ff6b9d;
+            animation: confettiFall 4s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Floating hearts */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 107, 157, 0.8);
+            font-size: 1.5rem;
+            animation: heartFloat 12s infinite linear;
+            opacity: 0;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Ana container */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Hero bölümü */
+        .hero-section {
+            text-align: center;
+            padding: 100px 40px 80px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px);
+            border-radius: 40px;
+            margin-bottom: 80px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+            z-index: -1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            color: white;
+            margin-bottom: 25px;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+            animation: titleGlow 4s ease-in-out infinite alternate;
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 1.1;
+        }
+
+        @keyframes titleGlow {
+            from { 
+                text-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 107, 157, 0.4); 
+            }
+            to { 
+                text-shadow: 0 0 60px rgba(255, 255, 255, 0.9), 0 0 80px rgba(255, 107, 157, 0.7); 
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 2.2rem;
+            color: #ff6b9d;
+            margin-bottom: 35px;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.6);
+            font-weight: 600;
+        }
+
+        .hero-message {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            font-weight: 400;
+        }
+
+        /* Avatar karakteri */
+        .avatar-section {
+            text-align: center;
+            margin: 100px 0;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .avatar-container {
+            display: inline-block;
+            position: relative;
+            animation: avatarFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes avatarFloat {
+            0%, 100% { transform: translateY(0px) rotateY(0deg); }
+            25% { transform: translateY(-15px) rotateY(5deg); }
+            50% { transform: translateY(-25px) rotateY(0deg); }
+            75% { transform: translateY(-15px) rotateY(-5deg); }
+        }
+
+        .avatar-character {
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(135deg, #ff6b9d, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7rem;
+            color: white;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.3),
+                inset 0 0 80px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .avatar-character::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            animation: avatarShine 6s infinite;
+        }
+
+        @keyframes avatarShine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .avatar-title {
+            margin-top: 40px;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+            font-weight: 700;
+        }
+
+        .avatar-subtitle {
+            margin-top: 15px;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+        }
+
+        /* Fotoğraf galerisi */
+        .gallery-section {
+            margin: 100px 0;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px);
+            border-radius: 40px;
+            padding: 80px 50px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            animation: fadeInUp 1s ease-out 0.6s both;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-title {
+            text-align: center;
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+            font-weight: 700;
+        }
+
+        .gallery-subtitle {
+            text-align: center;
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .photo-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 107, 157, 0.5);
+        }
+
+        .photo-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .photo-item:hover::before {
+            left: 100%;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #ff6b9d, #667eea);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-placeholder::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: photoShine 3s infinite;
+        }
+
+        @keyframes photoShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .photo-title {
+            font-size: 1.6rem;
+            color: #ff6b9d;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .photo-description {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        /* Aşk mesajı */
+        .love-section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px);
+            border-radius: 40px;
+            padding: 100px 70px;
+            margin: 100px 0;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            animation: fadeInUp 1s ease-out 0.9s both;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .love-title {
+            font-size: 4rem;
+            color: #ff6b9d;
+            margin-bottom: 50px;
+            text-shadow: 0 0 30px rgba(255, 107, 157, 0.6);
+            font-weight: 700;
+        }
+
+        .love-text {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.9;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+            font-weight: 400;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Butonlar */
+        .celebration-btn {
+            background: linear-gradient(135deg, #ff6b9d, #c44569, #667eea);
+            color: white;
+            border: none;
+            padding: 25px 60px;
+            font-size: 1.4rem;
+            border-radius: 60px;
+            cursor: pointer;
+            margin: 25px 15px;
+            transition: all 0.4s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .celebration-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .celebration-btn:hover::before {
+            left: 100%;
+        }
+
+        .celebration-btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .celebration-btn:active {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        /* Mobil uyumluluk */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-section {
+                padding: 60px 25px 50px;
+            }
+            
+            .avatar-character {
+                width: 200px;
+                height: 200px;
+                font-size: 5rem;
+            }
+            
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .love-section {
+                padding: 60px 30px;
+            }
+            
+            .love-title {
+                font-size: 2.8rem;
+            }
+
+            .celebration-btn {
+                padding: 20px 40px;
+                font-size: 1.2rem;
+                margin: 15px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .photo-placeholder {
+                height: 200px;
+                font-size: 3rem;
+            }
+
+            .main-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Konfeti container -->
+    <div class="confetti-container"></div>
+    
+    <!-- Floating hearts -->
+    <div class="floating-hearts"></div>
+
+    <!-- Ana container -->
+    <div class="main-container">
+        <!-- Hero bölümü -->
+        <section class="hero-section">
+            <h1 class="hero-title">🎉 Doğum Günün Kutlu Olsun Aşkım! 🎉</h1>
+            <h2 class="hero-subtitle">25 Temmuz - Senin Özel Günün</h2>
+            <p class="hero-message">
+                Aşkım, bugün sadece senin günün! Her ne kadar da oyunda tanışsak da tanıştığımız günden beri 
+                hayatım çok daha güzel. Sen benim en değerli hazinem, en büyük aşkımsın. 
+                Bu özel günde, seni ne kadar sevdiğimi ve ne kadar özel olduğunu hatırlatmak istiyorum. 
+                Doğum günün kutlu olsun prensesim! 💕✨
+            </p>
+            <button class="celebration-btn" onclick="startCelebration()">🎊 Kutlamayı Başlat</button>
+        </section>
+
+        <!-- Avatar karakteri -->
+        <section class="avatar-section">
+            <div class="avatar-container">
+                <div class="avatar-character">👫</div>
+                <h3 class="avatar-title">Avatar Life Aşkımız</h3>
+                <p class="avatar-subtitle">Sanal dünyada başlayan gerçek aşk</p>
+            </div>
+        </section>
+
+        <!-- Fotoğraf galerisi -->
+        <section class="gallery-section">
+            <h2 class="gallery-title">📸 Güzel Anılarımız</h2>
+            <p class="gallery-subtitle">Avatar Life'ta çektiğimiz özel fotoğraflar ve unutulmaz anlar</p>
+            <div class="photo-grid">
+                <div class="photo-item" onclick="showPhotoModal('İlk Karşılaşma')">
+                    <div class="photo-placeholder">
+                        🎮💕
+                    </div>
+                    <h3 class="photo-title">İlk Karşılaşma</h3>
+                    <p class="photo-description">
+                        Avatar Life'ta ilk tanıştığımız o büyülü an. 
+                        Karakterlerimiz buluştu, kalplerimiz birleşti.
+                    </p>
+                </div>
+                
+                <div class="photo-item" onclick="showPhotoModal('Aynı Kombinde')">
+                    <div class="photo-placeholder">
+                        👫✨
+                    </div>
+                    <h3 class="photo-title">Aynı Kombinde</h3>
+                    <p class="photo-description">
+                        Aynı kıyafetlerle yan yana durduğumuz o tatlı anlar. 
+                        Uyumumuz oyunda bile mükemmeldi.
+                    </p>
+                </div>
+                
+                <div class="photo-item" onclick="showPhotoModal('Romantik Anlar')">
+                    <div class="photo-placeholder">
+                        💖🌹
+                    </div>
+                    <h3 class="photo-title">Romantik Anlar</h3>
+                    <p class="photo-description">
+                        Oyun içindeki romantik pozlarımız, 
+                        sanal dünyada gerçek aşkın kanıtı.
+                    </p>
+                </div>
+                
+                <div class="photo-item" onclick="showPhotoModal('Özel Pozlar')">
+                    <div class="photo-placeholder">
+                        📷💫
+                    </div>
+                    <h3 class="photo-title">Özel Pozlar</h3>
+                    <p class="photo-description">
+                        Birlikte çektiğimiz en güzel fotoğraflar, 
+                        her biri bir hikaye anlatıyor.
+                    </p>
+                </div>
+                
+                <div class="photo-item" onclick="showPhotoModal('Mutlu Anlar')">
+                    <div class="photo-placeholder">
+                        😊🎉
+                    </div>
+                    <h3 class="photo-title">Mutlu Anlar</h3>
+                    <p class="photo-description">
+                        Gülümsediğimiz, eğlendiğimiz, 
+                        mutluluğumuzun dorukta olduğu anlar.
+                    </p>
+                </div>
+                
+                <div class="photo-item" onclick="showPhotoModal('Aşk Dolu Bakışlar')">
+                    <div class="photo-placeholder">
+                        👀💕
+                    </div>
+                    <h3 class="photo-title">Aşk Dolu Bakışlar</h3>
+                    <p class="photo-description">
+                        Birbirimize baktığımız o anlar, 
+                        gözlerimizde saklanan sonsuz sevgi.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aşk mesajı -->
+        <section class="love-section">
+            <h2 class="love-title">💝 Ela'ya Özel Sözler</h2>
+            <p class="love-text">
+                "Ela" isminin anlamı gibi, sen de benim hayatımın en güzel meleğisin. 
+                Gözlerin yıldızlardan daha parlak, gülüşün bahardan daha güzel. 
+                Seninle geçen her an bir şiir, her gün bir masal gibi.
+            </p>
+            <p class="love-text">
+                Avatar Life'ta tanıştığımız günden beri, sen benim en büyük şansımsın. 
+                Karakterlerimiz oyunda buluştu ama kalplerimiz gerçek hayatta birleşti. 
+                Sen benim hayat oyunumun en değerli ödülüsün aşkım.
+            </p>
+            <p class="love-text">
+                Doğum günün kutlu olsun sevgilim! Daha nice mutlu, sağlıklı, 
+                aşk dolu yıllar geçirmemizi diliyorum. Seni sonsuz seviyorum! 💕
+            </p>
+            <button class="celebration-btn" onclick="showSurprise()">🎁 Özel Sürpriz</button>
+            <button class="celebration-btn" onclick="showLoveMessage()">💌 Aşk Mesajı</button>
+        </section>
+    </div>
+
+    <script>
+        // Konfeti oluşturma
+        function createConfetti() {
+            const container = document.querySelector('.confetti-container');
+            const colors = ['#ff6b9d', '#667eea', '#764ba2', '#c44569', '#ffd700', '#ff69b4', '#4facfe', '#00f2fe'];
+            
+            for (let i = 0; i < 200; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 4 + 's';
+                confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                confetti.style.width = Math.random() * 10 + 6 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                container.appendChild(confetti);
+            }
+            
+            setTimeout(() => {
+                container.innerHTML = '';
+            }, 8000);
+        }
+
+        // Floating hearts oluşturma
+        function createFloatingHearts() {
+            const heartsContainer = document.querySelector('.floating-hearts');
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = ['💕', '💖', '💗', '💝', '❤️', '💜', '🧡', '💛'][Math.floor(Math.random() * 8)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 4 + 8) + 's';
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 12000);
+            }, 3000);
+        }
+
+        // Kutlama başlatma
+        function startCelebration() {
+            createConfetti();
+            
+            // Buton animasyonu
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '🎉 Kutlama Başladı! 🎉';
+            btn.style.background = 'linear-gradient(135deg, #667eea, #764ba2, #f093fb)';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = 'linear-gradient(135deg, #ff6b9d, #c44569, #667eea)';
+            }, 4000);
+        }
+
+        // Fotoğraf modal gösterme
+        function showPhotoModal(photoTitle) {
+            const messages = {
+                'İlk Karşılaşma': '💕 Avatar Life\'ta ilk tanıştığımız o büyülü an! Karakterlerimiz buluştu, kalplerimiz birleşti. O andan itibaren her şey değişti...',
+                'Aynı Kombinde': '👫 Aynı kıyafetlerle yan yana durduğumuz o tatlı anlar! Uyumumuz oyunda bile mükemmeldi. Sanki birbirimiz için yaratılmışız gibi...',
+                'Romantik Anlar': '💖 Oyun içindeki romantik pozlarımız, sanal dünyada gerçek aşkın kanıtı. Her fotoğraf bir aşk hikayesi anlatıyor...',
+                'Özel Pozlar': '📷 Birlikte çektiğimiz en güzel fotoğraflar! Her biri bir hikaye, her biri bir anı. Bunları görmek beni çok mutlu ediyor...',
+                'Mutlu Anlar': '😊 Gülümsediğimiz, eğlendiğimiz, mutluluğumuzun dorukta olduğu anlar. Seninle her an özel, her an güzel...',
+                'Aşk Dolu Bakışlar': '👀 Birbirimize baktığımız o anlar, gözlerimizde saklanan sonsuz sevgi. Gözlerin benim için en güzel manzara...'
+            };
+            
+            alert('📸 ' + photoTitle + '\n\n' + messages[photoTitle]);
+        }
+
+        // Sürpriz gösterme
+        function showSurprise() {
+            createMegaConfetti();
+            
+            setTimeout(() => {
+                alert('🎉 Aşkım, sen benim hayatımın en güzel sürprizi, en değerli hediyesisin! Avatar Life\'ta tanıştık ama gerçek hayatta aşık olduk! Her gün seninle daha da güzel. Seni çok seviyorum prensesim! 💕✨');
+            }, 1000);
+        }
+
+        // Aşk mesajı gösterme
+        function showLoveMessage() {
+            const loveMessages = [
+                '💕 Ela, sen benim hayatımın en güzel şarkısısın. Her notası aşkla dolu...',
+                '🌟 Gözlerin yıldızlardan daha parlak, gülüşün güneşten daha sıcak...',
+                '💖 Avatar Life\'ta tanıştık ama gerçek hayatta aşık olduk. Bu nasıl bir mucize!',
+                '🌹 Sen benim için sadece bir kız değil, hayatımın anlamısın...',
+                '💝 Doğum günün kutlu olsun aşkım! Seni sonsuz seviyorum!'
+            ];
+            
+            const randomMessage = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+            alert(randomMessage);
+        }
+
+        // Mega konfeti
+        function createMegaConfetti() {
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    createConfetti();
+                }, i * 300);
+            }
+        }
+
+        // Tıklama efekti
+        document.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.style.position = 'fixed';
+            ripple.style.left = e.clientX + 'px';
+            ripple.style.top = e.clientY + 'px';
+            ripple.style.width = '20px';
+            ripple.style.height = '20px';
+            ripple.style.background = 'rgba(255, 107, 157, 0.6)';
+            ripple.style.borderRadius = '50%';
+            ripple.style.transform = 'translate(-50%, -50%)';
+            ripple.style.pointerEvents = 'none';
+            ripple.style.animation = 'rippleEffect 0.8s ease-out';
+            ripple.style.zIndex = '9999';
+            
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 800);
+        });
+
+        // Ripple efekti CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rippleEffect {
+                0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+                100% { transform: translate(-50%, -50%) scale(6); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Sayfa yüklendiğinde
+        window.addEventListener('load', () => {
+            createFloatingHearts();
+            
+            setTimeout(() => {
+                createConfetti();
+            }, 800);
+        });
+    </script>
+</body>
+</html>
