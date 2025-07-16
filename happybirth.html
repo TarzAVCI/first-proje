@@ -324,7 +324,7 @@
 
         .photo-placeholder {
             width: 100%;
-            height: 250px;
+            height: 500px;
             background: linear-gradient(135deg, #ff6b9d, #667eea);
             border-radius: 20px;
             display: flex;
@@ -533,38 +533,72 @@
             <h2 class="gallery-title">📸 Güzel Anılarımız</h2>
             <p class="gallery-subtitle">Avatar Life'ta çektiğimiz özel fotoğraflar ve unutulmaz anlar</p>
             <div class="photo-grid">
-                <div class="photo-item" onclick="showPhotoModal('İlk Karşılaşma')">
-                    <div class="photo-placeholder">
-                        🎮💕
-                    </div>
-                    <h3 class="photo-title">İlk Karşılaşma</h3>
-                    <p class="photo-description">
-                        Avatar Life'ta ilk tanıştığımız o büyülü an. 
-                        Karakterlerimiz buluştu, kalplerimiz birleşti.
-                    </p>
-                </div>
-                
-                <div class="photo-item" onclick="showPhotoModal('Aynı Kombinde')">
-                    <div class="photo-placeholder">
-                        👫✨
-                    </div>
-                    <h3 class="photo-title">Aynı Kombinde</h3>
-                    <p class="photo-description">
-                        Aynı kıyafetlerle yan yana durduğumuz o tatlı anlar. 
-                        Uyumumuz oyunda bile mükemmeldi.
-                    </p>
-                </div>
-                
-                <div class="photo-item" onclick="showPhotoModal('Romantik Anlar')">
-                    <div class="photo-placeholder">
-                        💖🌹
-                    </div>
-                    <h3 class="photo-title">Romantik Anlar</h3>
-                    <p class="photo-description">
-                        Oyun içindeki romantik pozlarımız, 
-                        sanal dünyada gerçek aşkın kanıtı.
-                    </p>
-                </div>
+    <div class="photo-item" onclick="showPhotoModal('İlk Karşılaşma')">
+        <div class="photo-placeholder">
+            <img src="ilkkarsılasma.jpg" alt="İlk Karşılaşma">
+        </div>
+        <h3 class="photo-title">İlk Karşılaşma</h3>
+        <p class="photo-description">
+            Avatar Life'ta ilk tanıştığımız o büyülü an.
+            Karakterlerimiz buluştu, kalplerimiz birleşti.
+        </p>
+    </div>
+
+    <div class="photo-item" onclick="showPhotoModal('Aynı Kombinde')">
+        <div class="photo-placeholder">
+            <img src="aynı kombin.jpg" alt="Aynı Kombinde">
+        </div>
+        <h3 class="photo-title">Aynı Kombinde</h3>
+        <p class="photo-description">
+            Aynı kıyafetlerle yan yana durduğumuz o tatlı anlar.
+            Uyumumuz oyunda bile mükemmeldi.
+        </p>
+    </div>
+
+    <div class="photo-item" onclick="showPhotoModal('Romantik Anlar')">
+        <div class="photo-placeholder">
+            <img src="harika .jpg" alt="Romantik Anlar">
+        </div>
+        <h3 class="photo-title">Romantik Anlar</h3>
+        <p class="photo-description">
+            Oyun içindeki romantik pozlarımız,
+            sanal dünyada gerçek aşkın kanıtı.
+        </p>
+    </div>
+
+    <div class="photo-item" onclick="showPhotoModal('İlk Öpme')">
+        <div class="photo-placeholder">
+            <img src="ilk opusme.jpg" alt="İlk Öpme">
+        </div>
+        <h3 class="photo-title">İlk Öpme</h3>
+        <p class="photo-description">
+            Birlikte çektiğimiz en güzel fotoğraflar,
+            her biri bir hikaye anlatıyor.
+        </p>
+    </div>
+
+    <div class="photo-item" onclick="showPhotoModal('Mutlu Anlar')">
+        <div class="photo-placeholder">
+            <img src="mutlu anlar.jpg" alt="Mutlu Anlar">
+        </div>
+        <h3 class="photo-title">Mutlu Anlar</h3>
+        <p class="photo-description">
+            Gülümsediğimiz, eğlendiğimiz,
+            mutluluğumuzun dorukta olduğu anlar.
+        </p>
+    </div>
+
+    <div class="photo-item" onclick="showPhotoModal('Aşk Dolu Bakışlar')">
+        <div class="photo-placeholder">
+            <img src="images/ask-dolu-bakislar.jpg" alt="Aşk Dolu Bakışlar">
+        </div>
+        <h3 class="photo-title">Aşk Dolu Bakışlar</h3>
+        <p class="photo-description">
+            Birbirimize baktığımız o anlar,
+            gözlerimizde saklanan sonsuz sevgi.
+        </p>
+    </div>
+</div>
                 
                 <div class="photo-item" onclick="showPhotoModal('Özel Pozlar')">
                     <div class="photo-placeholder">
@@ -610,9 +644,9 @@
                 Seninle geçen her an bir şiir, her gün bir masal gibi.
             </p>
             <p class="love-text">
-                Avatar Life'ta tanıştığımız günden beri, sen benim en büyük şansımsın. 
-                Karakterlerimiz oyunda buluştu ama kalplerimiz gerçek hayatta birleşti. 
-                Sen benim hayat oyunumun en değerli ödülüsün aşkım.
+               Seni tanıdığım o günden beri hayatım bambaşka bir anlam kazandı.
+Kalbim ilk kez bu kadar huzurlu, bu kadar ait hissediyor.
+Sen, karşıma çıkan en güzel tesadüfsün… Belki kader, belki mucize… Ama en kesin olan şu: Sen benim kalbimin ödülüsün, bir ömrün en güzel hediyesisin.
             </p>
             <p class="love-text">
                 Doğum günün kutlu olsun sevgilim! Daha nice mutlu, sağlıklı, 
@@ -684,13 +718,18 @@
         // Fotoğraf modal gösterme
         function showPhotoModal(photoTitle) {
             const messages = {
-                'İlk Karşılaşma': '💕 Avatar Life\'ta ilk tanıştığımız o büyülü an! Karakterlerimiz buluştu, kalplerimiz birleşti. O andan itibaren her şey değişti...',
-                'Aynı Kombinde': '👫 Aynı kıyafetlerle yan yana durduğumuz o tatlı anlar! Uyumumuz oyunda bile mükemmeldi. Sanki birbirimiz için yaratılmışız gibi...',
-                'Romantik Anlar': '💖 Oyun içindeki romantik pozlarımız, sanal dünyada gerçek aşkın kanıtı. Her fotoğraf bir aşk hikayesi anlatıyor...',
-                'Özel Pozlar': '📷 Birlikte çektiğimiz en güzel fotoğraflar! Her biri bir hikaye, her biri bir anı. Bunları görmek beni çok mutlu ediyor...',
-                'Mutlu Anlar': '😊 Gülümsediğimiz, eğlendiğimiz, mutluluğumuzun dorukta olduğu anlar. Seninle her an özel, her an güzel...',
-                'Aşk Dolu Bakışlar': '👀 Birbirimize baktığımız o anlar, gözlerimizde saklanan sonsuz sevgi. Gözlerin benim için en güzel manzara...'
-            };
+    'İlk Karşılaşma': '✨ Seni ilk gördüğüm o an, sanki zaman durdu. Gözlerin kalbime yol çizdi, o bakışınla içimde bir dünya kuruldu...',
+    
+    'Aynı Kombinde': '💞 Aynı kıyafetleri giymek değil mesele... Seninle aynı yolda yürümek, aynı hayali paylaşmak en büyük uyumumuzdu.',
+    
+    'Romantik Anlar': '💖 Romantizm kelimesi eksik kalır yanında. Sen yanımdayken kalbim sadece seni anıyor, dünya susuyor, sadece biz konuşuyoruz...',
+    
+    'Özel Pozlar': '📸 Her karede bir gülüşün, her pozda bir ömrün yansıması var. Gözlerine her baktığımda başka bir şiir yazıyor kalbim...',
+    
+    'Mutlu Anlar': '😊 Gerçek mutluluğun tanımı sensin. Ne yaparsak yapalım, senin yanındaysam gülüşüm tam, içim huzur dolu oluyor...',
+    
+    'Aşk Dolu Bakışlar': '👀 Gözlerinle konuştuğun her an, kalbim sessizce sana "seni seviyorum" diye fısıldıyor. O bakışlar içimi ısıtıyor, ruhuma dokunuyor...'
+};
             
             alert('📸 ' + photoTitle + '\n\n' + messages[photoTitle]);
         }
@@ -707,12 +746,17 @@
         // Aşk mesajı gösterme
         function showLoveMessage() {
             const loveMessages = [
-                '💕 Ela, sen benim hayatımın en güzel şarkısısın. Her notası aşkla dolu...',
-                '🌟 Gözlerin yıldızlardan daha parlak, gülüşün güneşten daha sıcak...',
-                '💖 Avatar Life\'ta tanıştık ama gerçek hayatta aşık olduk. Bu nasıl bir mucize!',
-                '🌹 Sen benim için sadece bir kız değil, hayatımın anlamısın...',
-                '💝 Doğum günün kutlu olsun aşkım! Seni sonsuz seviyorum!'
-            ];
+    '✨ Ela, seninle konuşmak bile kalbimi hızlandırıyor. Varlığın huzur, sesin melodi gibi...',
+    '💫 Gülüşünle başlıyor günüm, adını duymadan geçen bir gün bile eksik hissettiriyor...',
+    '🌙 Gece ne kadar karanlık olursa olsun, senin sevgin içimi aydınlatıyor.',
+    '🌹 Kalbim, adını her attığında daha hızlı atıyor. Sen sadece sevgilim değil, nefesimsin...',
+    '🕊️ Seninle hayal kurmak bile başlı başına bir mutluluk. Gerçeği sen olunca, hayal kurmaya gerek bile kalmıyor.',
+    '💎 Herkes birilerini sever ama benim sana olan sevgim, zamana, mekâna ve sözcüklere sığmaz.',
+    '🌷 Bir çiçek gibi hayatıma açtın, renginle, kokunla, varlığınla... Seni sevmek her gün yeniden doğmak gibi.',
+    '🍃 Kalbimde bir tek senin yerin var. Ne geçmişten gelen bir iz, ne gelecekten bir umut... Sadece sen.',
+    '🔥 Herkesin bir ilham kaynağı vardır, benimki senin gülüşün. Bazen bir tebessümün dünyamı değiştiriyor.',
+    '🌈 Dünya renksizdi sen gelene kadar. Şimdi her renk, senin adını fısıldıyor.'
+];
             
             const randomMessage = loveMessages[Math.floor(Math.random() * loveMessages.length)];
             alert(randomMessage);
